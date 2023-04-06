@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "database_seeder"
+version = "0.0.3"
+authors = [
+  { name="Long Pham", email="phamlong15297@gmail.com" },
+]
+description = "A package to make seeds for some relational databases"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/conlacda/auto-seeder"
+"Bug Tracker" = "https://github.com/conlacda/auto-seeder/issues"
