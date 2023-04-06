@@ -53,12 +53,12 @@ class Database:
                     # print(sql, val)
 
         print(f"{self.failed_query_num} queries failed")
-    
+
     def clearDatabase(self):
         for table in self.table_names:
             cursor = self.db.cursor()
             cursor.execute("DELETE FROM " + table)
-    
+
     def clearAndMakeSeed(self, rows_num=10):
         self.clearDatabase()
         self.makeSeed(rows_num)
