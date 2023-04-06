@@ -54,9 +54,11 @@ class Field:
         self.getInfo(type_size)
 
     def getInfo(self, type_size):
+        # text, longtext
         if ('(' not in type_size):
-            self.data_type = type_size # text, longtext
+            self.data_type = type_size
             return
+        # bigint(20), int(12)
         reg = "(.*)\((\d{1,10})\)"
         matches = re.findall(reg, type_size)
         if (len(matches) > 0):
