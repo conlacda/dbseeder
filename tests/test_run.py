@@ -1,4 +1,4 @@
-from src.database_seeder import Database
+from src.dbseeder import Database
 
 
 def test_run():

@@ -1,7 +1,7 @@
 import mysql.connector
 from tqdm import tqdm
 
-from src.database_seeder.table import Table
+from src.dbseeder.table import Table
 
 
 class Database:
