@@ -38,7 +38,8 @@ class Database:
     def makeSeed(self, rows_num=10):
         self.loadDatabase()
         cursor = self.db.cursor()
-        for table in tqdm(self.tables):
+        for table in self.tables:
+            print(f"Make seed for table '{table.name}' - {rows_num} rows")
             for i in tqdm(range(rows_num // self.batchSize + 1)):
                 sql, val = table.genSQL(
                     min(rows_num - i * self.batchSize, self.batchSize)
@@ -52,3 +53,12 @@ class Database:
                     # print(sql, val)
 
         print(f"{self.failed_query_num} queries failed")
+    
+    def clearDatabase(self):
+        for table in self.table_names:
+            cursor = self.db.cursor()
+            cursor.execute("DELETE FROM " + table)
+    
+    def clearAndMakeSeed(self, rows_num=10):
+        self.clearDatabase()
+        self.makeSeed(rows_num)
