@@ -66,7 +66,7 @@ class Field:
     data_type: str = ""
     nullable: bool = True
     default_value: str = ""
-    key: str = "" # PRI (primary), UNI (unique)
+    key: str = ""  # PRI (primary), UNI (unique)
     max: int = 0
     min: int = 0
 
