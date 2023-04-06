@@ -8,6 +8,7 @@ class Database:
     db = None
     tables = []
     batchSize = 100
+    failed_query_num = 0
 
     def __init__(self, host="localhost", user="root", password="", database="") -> None:
         self.db = mysql.connector.connect(
@@ -47,4 +48,7 @@ class Database:
                     cursor.executemany(sql, val)
                     self.db.commit()
                 except:
-                    print(sql, val)
+                    self.failed_query_num += 1
+                    # print(sql, val)
+
+        print(f"{self.failed_query_num} queries failed")
