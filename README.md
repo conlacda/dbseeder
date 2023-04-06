@@ -16,3 +16,12 @@ db.clearAndMakeSeed(rows_num=100000)
 * Load relationship
 * Add test
 * Add argparser
+
+## Test
+
+```shell
+python -m pytest
+```
+
+## Packing
+https://packaging.python.org/en/latest/tutorials/packaging-projects/
