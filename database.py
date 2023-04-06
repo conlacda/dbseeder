@@ -42,5 +42,9 @@ class Database:
                 sql, val = table.genSQL(
                     min(rows_num - i * self.batchSize, self.batchSize)
                 )
-                cursor.executemany(sql, val)
-                self.db.commit()
+                # Phần unique đoạn này không có sẽ gây ra lỗi
+                try:
+                    cursor.executemany(sql, val)
+                    self.db.commit()
+                except:
+                    print(sql, val)

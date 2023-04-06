@@ -15,7 +15,7 @@ class Table:
 
     @property
     def field_names(self):
-        return f"({','.join([field.name for field in self.fields])})"
+        return f"({','.join([f'`{field.name}`' for field in self.fields])})"
 
     @property
     def percent_s(self):
