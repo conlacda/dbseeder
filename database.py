@@ -7,12 +7,12 @@ class Database:
     db = None
     tables = []
     batchSize = 100
-    def __init__(self) -> None:
+    def __init__(self, host="localhost", user="root", password="", database="") -> None:
         self.db = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="",
-            database="seed"
+            host=host,
+            user=user,
+            password=password,
+            database=database
         )
     
     @property
