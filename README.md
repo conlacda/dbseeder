@@ -15,4 +15,3 @@ db.clearAndMakeSeed(rows_num=100000)
 ## TODO
 * Load relationship
 * Add test
-* 
