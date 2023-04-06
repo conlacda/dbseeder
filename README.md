@@ -26,7 +26,7 @@ python -m pytest
 
 ## Packing
 * [Tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
-* [Pypi package](https://pypi.org/project/dbseeder/)
+* [Package on Pypi](https://pypi.org/project/dbseeder/)
 
 ## My note
 To publish new version:
