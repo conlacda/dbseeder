@@ -6,20 +6,18 @@ import re
 fake = Faker()
 data_definitions = {
     "tinyint": {"min": -128, "max": 127, "type": "int"},
-    "smallint": {"min": -(1<<15), "max": 1 << 15 - 1, "type": "int"},
-    "int": {"min": -(1<<31), "max": 1 << 31 - 1, "type": "int"},
-    "bigint": {"min": -(1<<63), "max": 1 << 63 - 1, "type": "int"},
+    "smallint": {"min": -(1 << 15), "max": 1 << 15 - 1, "type": "int"},
+    "int": {"min": -(1 << 31), "max": 1 << 31 - 1, "type": "int"},
+    "bigint": {"min": -(1 << 63), "max": 1 << 63 - 1, "type": "int"},
     "float": {"min": 0, "max": 3e38, "type": "int"},
     "double": {"min": 0, "max": 3e308, "type": "int"},
     "decimal": {"min": -128, "max": 0, "type": "int"},
-
     "varchar": {"min": 1, "max": 0, "type": "string"},
     "char": {"min": 1, "max": 0, "type": "string"},
     "text": {"min": 1, "max": 1 << 16 - 1, "type": "string"},
     "tinytext": {"min": 1, "max": 255, "type": "string"},
     "mediumtext": {"min": 1, "max": 1 << 24 - 1, "type": "string"},
     "longtext": {"min": 1, "max": 1 << 32 - 1, "type": "string"},
-
     "date": {"min": -1, "max": -1, "type": "timestamp"},
     "time": {"min": -1, "max": -1, "type": "timestamp"},
     "year": {"min": -1, "max": -1, "type": "timestamp"},
