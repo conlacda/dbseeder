@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from src.dbseeder.fields import Field
+from dbseeder.fields import Field
 
 
 @dataclass

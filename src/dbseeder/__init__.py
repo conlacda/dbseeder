@@ -1,1 +1,3 @@
-from src.dbseeder.database import Database
+__version__ = "0.0.1"
+
+from dbseeder.database import Database

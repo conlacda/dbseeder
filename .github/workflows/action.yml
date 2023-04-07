@@ -1,0 +1,56 @@
+name: Github action
+run-name: Github action
+
+on:  
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: password
+        ports:
+        - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Setup mysql
+        run: |
+          sudo apt-get install -y mysql-client
+          mysql --host 127.0.0.1 --port 3306 -uroot -ppassword -e "CREATE DATABASE seed;"
+          mysql --host 127.0.0.1 --port 3306 -uroot -ppassword -e "USE seed; CREATE TABLE Persons (PersonID int, LastName varchar(255), FirstName varchar(255), Address varchar(255), created_at datetime);"
+          mysql --host 127.0.0.1 --port 3306 -uroot -ppassword -e "SHOW DATABASES"
+          
+      - name: Setup Python
+        uses: actions/setup-python@v4.5.0
+        with:
+          python-version: '3.10'
+      - run: |
+          pip install -r requirements.txt
+          python -m black .
+          python -m dbseeder --database seed --host 127.0.0.1 --password password --rows_num 1000
+      
+      - uses: pypa/gh-action-pip-audit@v1.0.6
+        with:
+          inputs: requirements.txt
+          no-deps: true
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply black changes

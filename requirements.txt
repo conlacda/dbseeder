@@ -2,3 +2,5 @@ Faker
 tqdm
 pytest
 black
+mysql-connector
+dbseeder
