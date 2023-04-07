@@ -1,5 +1,5 @@
-name: Github action
-run-name: Github action
+name: gh-action-pip-audit
+run-name: gh-action-pip-audit
 
 on:  
   push:
@@ -43,14 +43,4 @@ jobs:
           python-version: '3.10'
       - run: |
           pip install -r requirements.txt
-          python -m black .
           python -m dbseeder --database seed --host 127.0.0.1 --password password --rows_num 1000
-      
-      - uses: pypa/gh-action-pip-audit@v1.0.6
-        with:
-          inputs: requirements.txt
-          no-deps: true
-
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Apply black changes
