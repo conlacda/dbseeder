@@ -1,5 +1,5 @@
 # Seeder for Mysql
-[![gh-action-pip-audit](https://github.com/conlacda/auto-seeder/actions/workflows/gh-action-pip-audit.yml/badge.svg)](https://github.com/conlacda/auto-seeder/actions/workflows/gh-action-pip-audit.yml)
+[![Github action](https://github.com/conlacda/dbseeder/actions/workflows/action.yml/badge.svg)](https://github.com/conlacda/dbseeder/actions/workflows/action.yml)
 
 > Load database then make seeds for it
 
