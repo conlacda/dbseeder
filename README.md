@@ -26,7 +26,6 @@ $ python -m dbseeder --host localhost --user root --password= --database seed --
 ## TODO
 * Load relationship
 * Add test
-* Add argparser
 
 ## Test
 
